@@ -23,4 +23,12 @@ composer require --dev alfredbez/oxid-dump-autoload
 
 # Usage
 
-Run `vendor/bin/oxid-dump-autoload` to generate a `autoload.oxid.php` inside your current working directory.
+Run `vendor/bin/oxid-dump-autoload` in a environment with a running shop and a database to generate a `autoload.oxid.php` inside your current working directory.
+
+Run `vendor/bin/oxid-dump-autoload-from-metadata` if you just want to create the classnames by using the metadata directly.
+You can specify a path to the metadata like so:
+```
+vendor/bin/oxid-dump-autoload-from-metadata path/to/metadataFolder
+# e.g. vendor/bin/oxid-dump-autoload-from-metadata source/modules/vendor/module
+# not vendor/bin/oxid-dump-autoload-from-metadata source/modules/vendor/module/metadata.php
+```

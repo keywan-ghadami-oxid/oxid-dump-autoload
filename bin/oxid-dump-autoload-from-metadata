@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+$output = '<?php' . PHP_EOL;
+
+$metadataLocation = $argv[1] ?: '.';
+$metadataLocation .= '/metadata.php';
+
+require $metadataLocation;
+
+foreach ($aModule['extend'] as $parentClass => $class) {
+    $parentClass .= '_parent';
+    $output .= "class_alias('$parentClass', '$class');" . PHP_EOL;
+}
+
+file_put_contents('autoload.oxid.php', $output);
